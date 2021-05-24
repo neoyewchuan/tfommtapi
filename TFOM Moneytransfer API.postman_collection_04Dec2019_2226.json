@@ -1,0 +1,459 @@
+{
+	"info": {
+		"_postman_id": "0d781ad9-fc36-4be2-adc5-ba7d7f6b4ac6",
+		"name": "TFOM Moneytransfer API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registration (Create User) JSON",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"first_name\": \"Nigel\",\n\t\"last_name\": \"Tan\",\n\t\"email\": \"ninjaturtle1@thefatoldman.com\",\n\t\"username\": \"nigelt1\",\n\t\"password\": \"password1\",\n\t\"country_code\": \"65\",\n\t\"mobile\": \"9123789\",\n\t\"dob_yrs\": \"1969\",\n\t\"dob_mth\": \"5\",\n\t\"dob_day\": \"29\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/TFOMMTAPI/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"TFOMMTAPI",
+						"users"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Create Users"
+			},
+			"response": []
+		},
+		{
+			"name": "Registration (Create User) XML (do not use)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<CreateUser>\n\t<FirstName>Yew Chuan</FirstName>\n\t<LastName>Neo</LastName>\n\t<Email>nyc@thefatoldman.com</Email>\n\t<Username>nyc</Username>\n\t<Password>password1</Password>\n\t<CountryCode>65</CountryCode>\n\t<Mobile>90124902</Mobile>\n\t<DOB_yrs>1971</DOB_yrs>\n\t<DOB_mth>9</DOB_mth>\n\t<DOB_day>30</DOB_day>\n</CreateUser>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/TFOMMTAPI/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"TFOMMTAPI",
+						"users"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Create Users"
+			},
+			"response": []
+		},
+		{
+			"name": "Login (Auth)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "ycneo",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/TFOMMTAPI/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"TFOMMTAPI",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Exist",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/TFOMMTAPI/users/ycneo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"TFOMMTAPI",
+						"users",
+						"ycneo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ1c2VydG9rZW4iLCJpYXQiOjE1NzM1NDI4NDMsInN1YiI6InVzZXIiLCJyb2xlIjoiTUVNQkVSIiwibmFtZSI6IiIsInBheWxvYWQiOiI0IiwiaXNzIjoibWFya2V0cGxhY2Uuc2ciLCJleHAiOjE1NzM1NDU4NDN9.xZqi1Qj0Sjj__3Rfj_NTxuEsXi6P6xC7LHz5aWWYJi4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"first_name\" : \"Sin Suan\",\n\t\"last_name\" : \"Oh\",\n\t\"profile_pix\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/TFOMMTAPI/users/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"TFOMMTAPI",
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Transaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ0aGVmYXRvbGRtYW5tdCIsImlhdCI6MTU3NDA4NjY2Mywic3ViIjoidXNlciIsInJvbGUiOiJNRU1CRVIiLCJuYW1lIjoiIiwicGF5bG9hZCI6IjIiLCJpc3MiOiJ0aGVmYXRvbGRtYW4ubG9jYWwiLCJleHAiOjE1NzQwODk2NjN9.xi9UCyxCK7-b_hOJkEJL9jxXNDxe3eiRx5qWWxYQT7c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"transactiontype\": 101,\n\t\"userid\": 2,\n\t\"fromto\": 0,\n\t\"amount\": 50.00,\n\t\"currency\": \"SGD\",\n\t\"bankaccount\": \"POSB 222-333-444-5\",\n\t\"remarks\": \"First Top-up\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/TFOMMTAPI/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"TFOMMTAPI",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transaction By Type",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ0aGVmYXRvbGRtYW5tdCIsImlhdCI6MTU3NDMzMjk2OCwic3ViIjoidXNlciIsInJvbGUiOiJNRU1CRVIiLCJuYW1lIjoiIiwicGF5bG9hZCI6IjEiLCJpc3MiOiJ0aGVmYXRvbGRtYW4ubG9jYWwiLCJleHAiOjE1NzQzMzU5Njh9.MNE7eP7FcCorsVHsu6fB2rcpTgIwxohKkPBzZklbCIw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/TFOMMTAPI/transactions/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"TFOMMTAPI",
+						"transactions",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Dashboard Summary",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ0aGVmYXRvbGRtYW5tdCIsImlhdCI6MTU3NDMzMjk2OCwic3ViIjoidXNlciIsInJvbGUiOiJNRU1CRVIiLCJuYW1lIjoiIiwicGF5bG9hZCI6IjEiLCJpc3MiOiJ0aGVmYXRvbGRtYW4ubG9jYWwiLCJleHAiOjE1NzQzMzU5Njh9.MNE7eP7FcCorsVHsu6fB2rcpTgIwxohKkPBzZklbCIw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/TFOMMTAPI/transactions/summary",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"TFOMMTAPI",
+						"transactions",
+						"summary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Payee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ0aGVmYXRvbGRtYW5tdCIsImlhdCI6MTU3NDA4MTcxMywic3ViIjoidXNlciIsInJvbGUiOiJNRU1CRVIiLCJuYW1lIjoiIiwicGF5bG9hZCI6IjIiLCJpc3MiOiJ0aGVmYXRvbGRtYW4ubG9jYWwiLCJleHAiOjE1NzQwODQ3MTN9.H3asGnWrtXxB1Gk7_kKm8U3DT-L1_CyJynsBmtUUxwk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userid\": 2,\n\t\"payee\" : \"ycneo\",\n\t\"alias\": \"Ah Fat\",\n\t\"bank_name\" : \"\",\n\t\"bank_acnt\" : \"\",\n\t\"type\" : 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/TFOMMTAPI/payees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"TFOMMTAPI",
+						"payees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get My Payees",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ0aGVmYXRvbGRtYW5tdCIsImlhdCI6MTU3NDMzMjk2OCwic3ViIjoidXNlciIsInJvbGUiOiJNRU1CRVIiLCJuYW1lIjoiIiwicGF5bG9hZCI6IjEiLCJpc3MiOiJ0aGVmYXRvbGRtYW4ubG9jYWwiLCJleHAiOjE1NzQzMzU5Njh9.MNE7eP7FcCorsVHsu6fB2rcpTgIwxohKkPBzZklbCIw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/TFOMMTAPI/payees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"TFOMMTAPI",
+						"payees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ0aGVmYXRvbGRtYW5tdCIsImlhdCI6MTU3NDUxMDIzMywic3ViIjoidXNlciIsInJvbGUiOiJNRU1CRVIiLCJuYW1lIjoiIiwicGF5bG9hZCI6IjEiLCJpc3MiOiJ0aGVmYXRvbGRtYW4ubG9jYWwiLCJleHAiOjE1NzQ1MTMyMzN9.PRaGBg9zj6f6n4dkN6IUBixECu_PrBMXjCCgG9PEn08",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"old_password\": \"password1\",\n\t\"new_password\": \"password1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/TFOMMTAPI/users/chgpass",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"TFOMMTAPI",
+						"users",
+						"chgpass"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
